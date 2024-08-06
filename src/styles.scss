@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    --picton: #00A8E8 !important;
+    --cerulean: #007EA7 !important;
+    --prussian: #003459 !important;
+    --rich: #00171F !important;
+    --white: #FFFFFF !important;
+  }
+
+/* =============================================== Backgrounds  ===============================================*/
+.bg-picton {
+    background-color: var(--picton) !important;
+  }
+  
+  .bg-cerulean {
+    background-color: var(--cerulean);
+  }
+
+  .bg-prussian {
+    background-color: var(--prussian);
+  }
+
+  .bg-rich {
+    background-color: var(--rich) !important;
+    height: 600px;
+    width: 600px;
+  }
+  
+  .bg-white {
+    background-color: var(--white);
+  }
+/* =============================================== Colors  ===============================================*/
+  
+.c-picton {
+    color: var(--picton) !important;
+  }
+  
+  .c-cerulean {
+    color: var(--cerulean);
+  }
+
+  .c-prussian {
+    color: var(--prussian);
+  }
+
+  .c-rich {
+    color: var(--rich);
+  }
+  
+  .c-white {
+    color: var(--white);
+  }
+
+  /* =============================================== Fonts Style  ===============================================*/
+
+  .kanit-regular {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
