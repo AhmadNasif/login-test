@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
 
+  user = {
+    username:'',
+    email: '',
+    password: ''
+  };
+
+  onSubmit(form: any): void {
+    if (form.valid) {
+      console.log('Form Submitted', this.user);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
 }

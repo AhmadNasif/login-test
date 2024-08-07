@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
-  { path: '**', redirectTo: '/login-page' }// waild card if the user write wrong url
+  { path: '**', redirectTo: '/login-page' }// wild card if the user write wrong url
 ];
 
 @NgModule({
