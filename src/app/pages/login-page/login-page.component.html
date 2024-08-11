@@ -3,15 +3,12 @@
         <!-- left side -->
         <div class="col-md-6 d-flex justify-content-center align-items-center bg-picton">
             <div class="col-md-8 bg-white rounded-4 p-3"> <!-- size controller for the form -->
-                <div class="col-md-12"><h6 class="kanit-regular">Dromn</h6></div>
-                <div class="col-md-12 mt-5"><h2 class="kanit-regular">Holla,<br> Welcome Back</h2></div>
-                <div class="col-md-12"><span>Hey👋, welcome back to your speacial place</span></div>
                 <!-- form start -->
-                <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="my-3">
+                <form class="my-3">
                     <div class="mb-3">
                         <label for="exampleInputUserName" class="form-label">Username</label>
-                        <input type="text" name="username" [(ngModel)]="user.username" required class="form-control" id="exampleInputUserName" aria-describedby="usernameHelp">
-                        <div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <input type="text" name="username" [(ngModel)]="user.username" class="form-control" id="exampleInputUserName" aria-describedby="usernameHelp">
+                        <div id="usernameHelp" class="form-text">We'll never share your name with anyone else.</div>
                       </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -24,7 +21,7 @@
                         </div>
                         <div>forget password</div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" (click)="addItem(user.username, user.password)">Submit</button>
                   </form>
                 <!-- form end -->
                  
@@ -33,9 +30,10 @@
         <!-- right side -->
         <div class="col-md-6 d-flex justify-content-center align-items-center bg-rich">
             <div class="col-md-12 d-flex justify-content-center align-items-center position-relative">
-                <div class="position-absolute welcome-text z-1"><span class="fs-3">Holla {{user.username}}</span></div>
-                <div class="position-absolute welcome-box z-0"><img src="assets/images/welcome.svg" height="90px" alt=""></div>
-                <img src="assets/images/entery.svg" height="500px" alt="">
+                <li class="c-picton" *ngFor="let item of items">
+                    {{ item.name }} - {{ item.description }}
+                    <button class="c-picton" (click)="deleteItem(item.id)">Delete</button>
+                </li>
             </div>
         </div>
     </div>
