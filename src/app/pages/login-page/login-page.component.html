@@ -7,16 +7,16 @@
                 <form class="my-3">
                     <div class="mb-3">
                         <label for="exampleInputUserName" class="form-label">Username</label>
-                        <input type="text" name="username" [(ngModel)]="user.username" class="form-control" id="exampleInputUserName" aria-describedby="usernameHelp">
+                        <input type="text" name="username" [(ngModel)]="user.username" class="form-control" aria-describedby="usernameHelp">
                         <div id="usernameHelp" class="form-text">We'll never share your name with anyone else.</div>
                       </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" name="password" [(ngModel)]="user.password" required minlength="8" class="form-control" id="exampleInputPassword1">
+                      <input type="password" name="password" [(ngModel)]="user.password" required minlength="8" class="form-control" >
                     </div>
                     <div class="mb-3 form-check d-flex justify-content-between">
                         <div>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input" >
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
                         <div>forget password</div>
@@ -24,7 +24,32 @@
                     <button type="submit" class="btn btn-primary" (click)="addItem(user.username, user.password)">Submit</button>
                   </form>
                 <!-- form end -->
-                 
+<div class="row bg-picton py-3"></div>
+                 <!-- form start -->
+                <form [formGroup]="userForm" (ngSubmit)="onSubmitReactive()" class="my-3">
+                    <div class="mb-3">
+                        <label for="exampleInputUserName" class="form-label">Username</label>
+                        <input type="text" formControlName="name" class="form-control" aria-describedby="usernameHelp">
+                        <div id="usernameHelp" class="form-text">We'll never share your name with anyone else.</div>
+                      </div>
+                      <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">email</label>
+                      <input type="email" formControlName="email" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" formControlName="password" class="form-control" >
+                    </div>
+                    <div class="mb-3 form-check d-flex justify-content-between">
+                        <div>
+                            <input type="checkbox" class="form-check-input" >
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <div>forget password</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                <!-- form end -->
             </div>
         </div>
         <!-- right side -->

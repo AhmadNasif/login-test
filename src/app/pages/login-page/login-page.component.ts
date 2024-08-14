@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
-export class LoginPageComponent {
-
-  constructor(private dataService: DataService) {}
+export class LoginPageComponent implements OnInit {
+  userForm: FormGroup;
+  constructor(private dataService: DataService, private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   user = {
     username:'',
@@ -21,6 +28,14 @@ export class LoginPageComponent {
   onSubmit(form: any): void {
     if (form.valid) {
       console.log('Form Submitted', this.user);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
+  onSubmitReactive(): void {
+    if (this.userForm.valid) {
+      console.log('Form Submitted', this.userForm.value);
     } else {
       console.log('Form is invalid');
     }
